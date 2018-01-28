@@ -60,13 +60,13 @@
     dest: "{{ ruby_build_unarchive_remote_dir }}"
     keep_newer: yes
 
-- name: configure
-  command: ./configure
+- name: "configure {{ ruby_build_configure_options }}"
+  command: "./configure {{ ruby_build_configure_options }}"
   args:
     chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
 
-- name: make
-  command: make
+- name: "make {{ ruby_build_make_options }}"
+  command: "make {{ ruby_build_make_options }}"
   args:
     chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
 
