@@ -1,0 +1,67 @@
+#- debug: var=ruby_build_version
+#- debug: var=ruby_build_download_url
+#- debug: var=ruby_build_download_local_dir
+#- debug: var=ruby_build_unarchive_remote_dir
+
+- name: "required packages"
+  become: yes
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ ruby_build_required_packages }}"
+
+- name: "local download diretory {{ ruby_build_download_local_dir }}"
+  local_action:
+    module: file
+    state: directory
+    path: "{{ ruby_build_download_local_dir }}"
+    mode: 0755
+
+- name: "download from {{ ruby_build_download_url }}/ruby-{{ ruby_build_version }}.tar.gz"
+  local_action:
+    module: get_url
+    url: "{{ ruby_build_download_url }}/ruby-{{ ruby_build_version }}.tar.gz"
+    dest: "{{ ruby_build_download_local_dir }}/ruby-{{ ruby_build_version }}.tar.gz"
+
+- name: "remote unarchive directory {{ ruby_build_unarchive_remote_dir }}"
+  file:
+    state: directory
+    path: "{{ ruby_build_unarchive_remote_dir }}"
+    mode: 0755
+
+- name: clean previous build
+  file:
+    state: absent
+    path: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+  when: ruby_build_preclean
+
+- name: "unarchive source code from ruby-{{ ruby_build_version }}.tar.gz"
+  unarchive:
+    src: "{{ ruby_build_download_local_dir }}/ruby-{{ ruby_build_version }}.tar.gz"
+    dest: "{{ ruby_build_unarchive_remote_dir }}"
+    keep_newer: yes
+
+- name: configure
+  command: ./configure
+  args:
+    chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+
+- name: make
+  command: make
+  args:
+    chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+
+- name: make test
+  command: make test
+  args:
+    chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+
+- name: make install
+  become: yes
+  command: make install
+  args:
+    chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:

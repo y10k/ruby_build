@@ -1,0 +1,12 @@
+ruby_build_version: 2.5.0
+ruby_build_download_url: http://cache.ruby-lang.org/pub/ruby
+ruby_build_download_local_dir: "{{ role_path }}/files"
+ruby_build_unarchive_remote_dir: "{{ ansible_env.HOME }}/src"
+ruby_build_preclean: no
+ruby_build_required_packages:
+  - gcc
+  - make
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:
