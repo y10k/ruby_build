@@ -17,6 +17,7 @@
     module: get_url
     url: "{{ ruby_build_download_url }}/ruby-{{ ruby_build_version }}.tar.gz"
     dest: "{{ ruby_build_download_local_dir }}/ruby-{{ ruby_build_version }}.tar.gz"
+    checksum: "{{ ruby_build_download_checksum }}"
 
 - name: "remote unarchive directory {{ ruby_build_unarchive_remote_dir }}"
   file:
