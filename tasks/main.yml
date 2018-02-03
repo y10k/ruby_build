@@ -47,11 +47,11 @@
     path: "{{ ruby_build_unarchive_remote_dir }}"
     mode: 0755
 
-- name: clean previous build
+- name: clear previous build
   file:
     state: absent
     path: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
-  when: ruby_build_preclean
+  when: ruby_build_clear_previous_build
 
 - name: "unarchive source code from ruby-{{ ruby_build_version }}.tar.gz"
   unarchive:
@@ -79,6 +79,12 @@
   command: make install
   args:
     chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+
+- name: make clean
+  command: make clean
+  args:
+    chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
+  when: ruby_build_make_clean
 
 # Local Variables:
 # indent-tabs-mode: nil

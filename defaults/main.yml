@@ -3,9 +3,10 @@ ruby_build_download_url: http://cache.ruby-lang.org/pub/ruby
 ruby_build_download_checksum: sha1:58f77301c891c1c4a08f301861c26b1ea46509f6
 ruby_build_download_local_dir: "{{ role_path }}/files"
 ruby_build_unarchive_remote_dir: "{{ ansible_env.HOME }}/src"
-ruby_build_preclean: no
+ruby_build_clear_previous_build: no
 ruby_build_configure_options: ''
 ruby_build_make_options: -j
+ruby_build_make_clean: no
 
 ruby_build_required_packages:
   - gcc
