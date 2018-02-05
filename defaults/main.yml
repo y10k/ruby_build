@@ -7,6 +7,8 @@ ruby_build_clear_previous_build: no
 ruby_build_configure_options: ''
 ruby_build_make_options: -j
 ruby_build_make_clean: no
+ruby_build_interpreter_path: /usr/local/bin/ruby
+ruby_build_overwrite_install: false
 
 ruby_build_required_packages:
   - gcc
