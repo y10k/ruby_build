@@ -14,8 +14,6 @@ ruby_build_required_packages:
   - gcc
   - make
 
-ruby_build_optional_packages_common: []
-
 ruby_build_optional_packages_debian:
   - zlib1g-dev
   - libgdbm-dev
@@ -27,6 +25,8 @@ ruby_build_optional_packages_redhat:
   - gdbm-devel
   - openssl-devel
   - readline-devel
+
+ruby_build_optional_packages_other_os_family: []
 
 # Local Variables:
 # indent-tabs-mode: nil
