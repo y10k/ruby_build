@@ -53,8 +53,14 @@
   set_fact:
     ruby_env: "{{ ruby_env_result.stdout | from_yaml }}"
 
+- name: installed ruby version
+  debug: var=ruby_env.rbconfig.ruby_version
+
 - name: ruby build
   block:
+    - name: ruby build version
+      debug: var=ruby_build_version
+
     - name: clear previous build
       file:
         state: absent
