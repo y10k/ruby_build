@@ -1,6 +1,6 @@
-ruby_build_version: 2.5.0
-ruby_build_download_url: http://cache.ruby-lang.org/pub/ruby
-ruby_build_download_checksum: sha1:58f77301c891c1c4a08f301861c26b1ea46509f6
+ruby_build_version: 2.5.1
+ruby_build_download_url: http://cache.ruby-lang.org/pub/ruby/2.5
+ruby_build_download_checksum: sha256:dac81822325b79c3ba9532b048c2123357d3310b2b40024202f360251d9829b1
 ruby_build_download_local_dir: "{{ role_path }}/files"
 ruby_build_unarchive_remote_dir: "{{ ansible_env.HOME }}/src"
 ruby_build_clear_previous_build: no
