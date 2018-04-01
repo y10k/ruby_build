@@ -54,7 +54,7 @@
     ruby_env: "{{ ruby_env_result.stdout | from_yaml }}"
 
 - name: installed ruby version
-  debug: var=ruby_env.rbconfig.ruby_version
+  debug: var=ruby_env.rbconfig.RUBY_PROGRAM_VERSION
 
 - name: ruby build
   block:
@@ -100,8 +100,8 @@
         chdir: "{{ ruby_build_unarchive_remote_dir }}/ruby-{{ ruby_build_version }}"
       when: ruby_build_make_clean
   when: >-
-    not(ruby_env.ruby_exists)                            or
-    ruby_env.rbconfig.ruby_version != ruby_build_version or
+    not(ruby_env.ruby_exists) or
+    ruby_env.rbconfig.RUBY_PROGRAM_VERSION!= ruby_build_version or
     ruby_build_overwrite_install
 
 # Local Variables:
