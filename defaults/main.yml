@@ -5,7 +5,7 @@ ruby_build_download_local_dir: "{{ playbook_dir }}/files"
 ruby_build_unarchive_remote_dir: "{{ ansible_env.HOME }}/src"
 ruby_build_clear_previous_build: no
 ruby_build_configure_options: ''
-ruby_build_make_options: -j
+ruby_build_make_options: "-j{{ ansible_processor_vcpus }}"
 ruby_build_make_clean: no
 ruby_build_interpreter_path: /usr/local/bin/ruby
 ruby_build_overwrite_install: false
