@@ -18,7 +18,7 @@
 
 - name: packages (other OS family)
   become: yes
-  yum:
+  package:
     name: "{{ item }}"
   with_items:
     - "{{ ruby_build_required_packages }}"
