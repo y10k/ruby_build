@@ -10,7 +10,7 @@ ruby_build_make_clean: no
 ruby_build_interpreter_path: /usr/local/bin/ruby
 ruby_build_overwrite_install: false
 
-ruby_build_required_packages:
+ruby_build_required_packages_debian:
   - gcc
   - make
 
@@ -20,12 +20,17 @@ ruby_build_optional_packages_debian:
   - libssl-dev
   - libreadline-dev
 
+ruby_build_required_packages_redhat:
+  - gcc
+  - make
+
 ruby_build_optional_packages_redhat:
   - zlib-devel
   - gdbm-devel
   - openssl-devel
   - readline-devel
 
+ruby_build_required_packages_other_os_family: []
 ruby_build_optional_packages_other_os_family: []
 
 # Local Variables:
