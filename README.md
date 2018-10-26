@@ -1,8 +1,8 @@
-ruby-build
+ruby_build
 =========
 
 Ansible role to build ruby from scratch.
-As follows is the behavior of ruby-build role.
+As follows is the behavior of ruby_build role.
 
 1. On remote machine, install packages needed to build ruby.
    Root user is required.
@@ -51,7 +51,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - role: ruby-build
+         - role: y10k.ruby_build
 
 License
 -------
