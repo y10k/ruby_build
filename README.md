@@ -23,8 +23,8 @@ Role Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-|`ruby_build_version`|`2.5.3`|to change ruby's version, change version and checksum at the same time|
-|`ruby_build_download_url`|`https://cache.ruby-lang.org/pub/ruby/2.5`|base URL of ruby's tarball|
+|`ruby_build_version`|`2.6.0`|to change ruby's version, change version and checksum at the same time|
+|`ruby_build_download_url`|`https://cache.ruby-lang.org/pub/ruby/2.6`|base URL of ruby's tarball|
 |`ruby_build_download_checksum`|hexadecimal hash value of ruby source tarball|to change ruby's version, change version and checksum at the same time|
 |`ruby_build_download_local_dir`|`{{ playbook_dir }}/files`|download directory on control machine|
 |`ruby_build_unarchive_remote_dir`|`{{ ansible_env.HOME }}/src`|unarchive directory on remote machine|
