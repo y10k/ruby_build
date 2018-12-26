@@ -49,9 +49,11 @@ None.
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - role: y10k.ruby_build
+```yaml
+- hosts: servers
+  roles:
+  - role: y10k.ruby_build
+```
 
 License
 -------
