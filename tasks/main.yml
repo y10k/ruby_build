@@ -25,7 +25,7 @@
     - "{{ ruby_build_optional_packages_other_os_family }}"
   when: not(ansible_os_family in ("Debian", "RedHat"))
 
-- name: "local download diretory {{ ruby_build_download_local_dir }}"
+- name: "local download directory {{ ruby_build_download_local_dir }}"
   local_action:
     module: file
     state: directory
