@@ -1,6 +1,6 @@
-ruby_build_version: 2.6.2
+ruby_build_version: 2.6.3
 ruby_build_download_url: https://cache.ruby-lang.org/pub/ruby/2.6
-ruby_build_download_checksum: sha256:a0405d2bf2c2d2f332033b70dff354d224a864ab0edd462b7a413420453b49ab
+ruby_build_download_checksum: sha256:577fd3795f22b8d91c1d4e6733637b0394d4082db659fccf224c774a2b1c82fb
 ruby_build_download_local_dir: "{{ playbook_dir }}/files"
 ruby_build_unarchive_remote_dir: "{{ ansible_env.HOME }}/src"
 ruby_build_clear_previous_build: no
