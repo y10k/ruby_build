@@ -29,6 +29,7 @@
   local_action:
     module: file
     state: directory
+    follow: yes
     path: "{{ ruby_build_download_local_dir }}"
     mode: 0755
 
