@@ -43,6 +43,7 @@
 - name: "remote unarchive directory {{ ruby_build_unarchive_remote_dir }}"
   file:
     state: directory
+    follow: yes
     path: "{{ ruby_build_unarchive_remote_dir }}"
     mode: 0755
 
