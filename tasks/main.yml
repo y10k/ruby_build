@@ -58,8 +58,7 @@
 - name: installed ruby version
   debug: var=ruby_build_env.rbconfig.RUBY_PROGRAM_VERSION
 
-- name: ruby build
-  block:
+- block:
     - name: ruby build version
       debug: var=ruby_build_version
 
