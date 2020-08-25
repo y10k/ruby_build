@@ -1,28 +1,31 @@
 - name: packages (Debian)
   become: yes
   apt:
-    name: "{{ item }}"
-  with_items:
-    - "{{ ruby_build_required_packages_debian }}"
-    - "{{ ruby_build_optional_packages_debian }}"
+    name: >-
+      {{
+        ruby_build_required_packages_debian +
+        ruby_build_optional_packages_debian
+      }}
   when: ansible_os_family == "Debian"
 
 - name: packages (RedHat)
   become: yes
   yum:
-    name: "{{ item }}"
-  with_items:
-    - "{{ ruby_build_required_packages_redhat }}"
-    - "{{ ruby_build_optional_packages_redhat }}"
+    name: >-
+      {{
+        ruby_build_required_packages_redhat +
+        ruby_build_optional_packages_redhat
+      }}
   when: ansible_os_family == "RedHat"
 
 - name: packages (other OS family)
   become: yes
   package:
-    name: "{{ item }}"
-  with_items:
-    - "{{ ruby_build_required_packages_other_os_family }}"
-    - "{{ ruby_build_optional_packages_other_os_family }}"
+    name: >-
+      {{
+        ruby_build_required_packages_other_os_family +
+        ruby_build_optional_packages_other_os_family
+      }}
   when: not(ansible_os_family in ("Debian", "RedHat"))
 
 - name: "local download directory {{ ruby_build_download_local_dir }}"
